@@ -19,4 +19,17 @@ model User {
   username  String   @unique @db.VarChar(20)
   password  String   
   email     String   @unique
+  wishlist  WishList[]
+}
+
+model WishList {
+  id        String   @id @default(uuid()) @db.VarChar(36)
+  user      User @relation(fields: [userId], references: [id])
+  userId    String
+  gameId    String
+  title     String
+  price     Float
+  thumb     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
