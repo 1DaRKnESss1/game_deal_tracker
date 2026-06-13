@@ -15,7 +15,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
-import { AuthRequest } from 'src/types/auth-request.interface';
+import type { AuthRequest } from 'src/types/auth-request.interface';
 
 @ApiTags('notifications')
 @UseGuards(JwtGuard)
