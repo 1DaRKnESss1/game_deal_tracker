@@ -9,6 +9,7 @@ describe('WishlistService', () => {
     wishList: {
       create: jest.fn(),
       findMany: jest.fn(),
+      findFirst: jest.fn(),
       delete: jest.fn(),
     },
   };
@@ -62,6 +63,7 @@ describe('WishlistService', () => {
     };
     const mockItem = { id: '1', userId: 'user1', ...dto };
 
+    mockPrismaService.wishList.findFirst.mockResolvedValue(null);
     mockPrismaService.wishList.create.mockResolvedValue(mockItem);
 
     const result = await service.addGame('user1', dto);
